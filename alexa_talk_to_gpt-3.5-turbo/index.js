@@ -33,7 +33,7 @@ function formatString(text) {
 }
 
 //gpt-3.5-turboへ会話を投げるインテント(toChatgpt)が来たらこのコードが実行される
-const AskChatgptIntentHandler = {
+const toChatgptIntentHandler = {
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
@@ -110,7 +110,7 @@ const ErrorHandler = {
  * */
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
-        AskChatgptIntentHandler,
+        toChatgptIntentHandler,
         LaunchRequestHandler,
         CancelAndStopIntentHandler)
     .addErrorHandlers(
